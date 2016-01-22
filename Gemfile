@@ -14,6 +14,7 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'rails-assets-normalize-scss', '~> 3.0.1'
 gem 'rails-assets-stylish-scss', '~> 0.0.5'
+gem 'rails-assets-bootstrap', '3.3.6'
 gem 'rails-assets-angular', '1.2.14'
 gem 'rails-assets-angular-resource', '1.2.14'
 gem 'rails-assets-angular-sanitize', '1.2.14'
