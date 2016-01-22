@@ -1,0 +1,659 @@
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE "courses" ("id" serial primary key, "name" character varying(255), "description" character varying(255), "status" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "students" ("id" serial primary key, "name" character varying(255), "register_number" character varying(255), "status" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160122200151')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160122195618')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "students" ("created_at", "register_number", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:10:41.077675"], ["register_number", "a"], ["updated_at", "2016-01-22 20:10:41.077675"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "students" ("created_at", "register_number", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:11:10.444666"], ["register_number", "a"], ["updated_at", "2016-01-22 20:11:10.444666"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "register_number", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:12:58.502474"], ["register_number", "a"], ["updated_at", "2016-01-22 20:12:58.502474"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (4.9ms)[0m  [1mDROP TABLE "courses"[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "courses" ("id" serial primary key, "name" character varying(45), "description" character varying(45), "status" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "students"[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "students" ("id" serial primary key, "name" character varying(45), "register_number" character varying(45), "status" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "classrooms" ("id" serial primary key, "student_id" integer, "course_id" integer, "entry_at" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_classrooms_on_course_id" ON "classrooms" USING btree ("course_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_classrooms_on_student_id" ON "classrooms" USING btree ("student_id")[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "courses"
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "courses" ("id" serial primary key, "name" character varying(45), "description" character varying(45), "status" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "students"
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "students" ("id" serial primary key, "name" character varying(45), "register_number" character varying(45), "status" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160122201952')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.5ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2016-01-22 20:24:11.533293"], ["name", "a"], ["updated_at", "2016-01-22 20:24:11.533293"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mCourse Exists (0.4ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by ClassroomsController#new as HTML
+Completed 200 OK in 40ms (Views: 36.7ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "classrooms"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by CoursesController#new as HTML
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "courses"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by StudentsController#new as HTML
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "students"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.4ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2016-01-22 20:24:19.749838"], ["name", "a"], ["updated_at", "2016-01-22 20:24:19.749838"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mCourse Exists (0.5ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "students" ("created_at", "register_number", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2016-01-22 20:24:19.785491"], ["register_number", "a"], ["updated_at", "2016-01-22 20:24:19.785491"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by ClassroomsController#new as HTML
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "classrooms"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by CoursesController#new as HTML
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "courses"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by StudentsController#new as HTML
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "students"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.5ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2016-01-22 20:24:43.698466"], ["name", "a"], ["updated_at", "2016-01-22 20:24:43.698466"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mCourse Exists (0.4ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "register_number", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2016-01-22 20:24:43.735056"], ["register_number", "a"], ["updated_at", "2016-01-22 20:24:43.735056"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.2ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.2ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.2ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.4ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.2ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.2ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.2ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.2ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.2ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.4ms)[0m  SELECT  1 AS one FROM "classrooms"  WHERE ("classrooms"."student_id" IS NULL AND "classrooms"."course_id" IS NULL) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:30:52.435073"], ["name", "a"], ["updated_at", "2016-01-22 20:30:52.435073"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCourse Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:30:55.121020"], ["name", "a"], ["updated_at", "2016-01-22 20:30:55.121020"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCourse Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1[0m
+  [1m[35mCourse Exists (0.3ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.3ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.3ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Load (0.8ms)[0m  [1mSELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:31:24.845092"], ["name", "a"], ["updated_at", "2016-01-22 20:31:24.845092"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCourse Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1[0m
+  [1m[35mCourse Exists (0.3ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.3ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:31:42.453355"], ["name", "a"], ["updated_at", "2016-01-22 20:31:42.453355"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCourse Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1[0m
+  [1m[35mCourse Exists (0.2ms)[0m  SELECT  1 AS one FROM "courses"  WHERE "courses"."name" = 'a' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "register_number", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:32:30.762502"], ["register_number", "a"], ["updated_at", "2016-01-22 20:32:30.762502"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.4ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "students" ("created_at", "register_number", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:33:22.207400"], ["register_number", "a"], ["updated_at", "2016-01-22 20:33:22.207400"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "students" ("created_at", "register_number", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-01-22 20:33:25.024442"], ["register_number", "a"], ["updated_at", "2016-01-22 20:33:25.024442"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."register_number" = 'a' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m

@@ -1,0 +1,47 @@
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (3.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStudents (20160122195618)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "students" ("id" serial primary key, "name" character varying(255), "register_number" character varying(255), "status" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160122195618"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCourses (20160122200151)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "courses" ("id" serial primary key, "name" character varying(255), "description" character varying(255), "status" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160122200151"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "students"[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20160122195618'
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "students" ("id" serial primary key, "name" character varying(45), "register_number" character varying(45), "status" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160122195618"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "courses"[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20160122200151'
+  [1m[36m (3.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "courses" ("id" serial primary key, "name" character varying(45), "description" character varying(45), "status" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160122200151"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateClassrooms (20160122201952)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "classrooms" ("id" serial primary key, "student_id" integer, "course_id" integer, "entry_at" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_classrooms_on_student_id" ON "classrooms"  ("student_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_classrooms_on_course_id" ON "classrooms"  ("course_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160122201952"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
