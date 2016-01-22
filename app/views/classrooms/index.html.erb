@@ -1,11 +1,11 @@
-<h1>Listing classrooms</h1>
+<h1><%= tmp Classroom %></h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Student</th>
-      <th>Course</th>
-      <th>Entry at</th>
+      <th><%= ta Classroom, :estudante %></th>
+      <th><%= ta Classroom, :curso %></th>
+      <th><%= ta Classroom, :entrada %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,12 +13,11 @@
   <tbody>
     <% @classrooms.each do |classroom| %>
       <tr>
-        <td><%= classroom.student %></td>
-        <td><%= classroom.course %></td>
-        <td><%= classroom.entry_at %></td>
-        <td><%= link_to 'Show', classroom %></td>
-        <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
-        <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= classroom.student.name %></td>
+        <td><%= classroom.course.name %></td>
+        <td><%= l classroom.entry_at %></td>
+        <td><%= link_to 'Editar', edit_classroom_path(classroom) %></td>
+        <td><%= link_to 'Excluir', classroom, method: :delete, data: { confirm: 'Confirma?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Classroom', new_classroom_path %>
+<%= link_to 'Nova classe', new_classroom_path, class: 'btn btn-default' %>

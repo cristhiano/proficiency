@@ -1,11 +1,18 @@
-<%= simple_form_for(@course) do |f| %>
+<%= simple_form_for(@course,
+                    defaults: { input_html: { :class => "form-control" } },
+                    wrapper: :vertical_input_group,
+                    wrapper_mappings: {
+                      check_boxes: :horizontal_radio_and_checkboxes,
+                      radio_buttons: :horizontal_radio_and_checkboxes,
+                      file: :horizontal_file_input,
+                      boolean: :horizontal_boolean
+                    }) do |f| %>
+
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :status %>
-  </div>
+  <%= f.input :name %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :status, collection: {'Ativo' => '1', 'Inativo' => '0'} %>
 
   <div class="form-actions">
     <%= f.button :submit %>

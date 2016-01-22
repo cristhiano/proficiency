@@ -1,11 +1,27 @@
 pt-BR:
   activerecord:
     models:
-      account_category:
-        one: Categoria
-        other: Categorias
+      course:
+        one: Curso
+        other: Cursos
+      student:
+        one: Estudante
+        other: Estudantes
+      classroom:
+        one: Classe
+        other: Classes
+
 
     attributes:
-      account_category:
+      course:
         name: Nome
-        status: Situação
+        description: Descrição
+
+      student:
+        name: Nome
+        register_number: Número da matrícula
+
+      classroom:
+        student: Estudante
+        course: Curso
+        entry_at: Entrada
