@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :student do
-    name "MyString"
-    register_number "MyString"
-    status 1
+    name { Forgery('name').full_name }
+    register_number { Forgery('basic').number }
+    status { [0, 1].sample }
   end
 end

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :course do
-    name "MyString"
-    description "MyString"
-    status 1
+    name { Forgery('name').company_name }
+    description { Forgery('lorem_ipsum').characters }
+    status { [0, 1].sample }
   end
 end
