@@ -6,5 +6,10 @@ RSpec.describe Classroom, type: :model do
 
   it { expect(subject).to validate_presence_of :student_id }
   it { expect(subject).to validate_presence_of :course_id }
-  it { expect(subject).to validate_presence_of :entry_at }
+
+  describe 'entry_at' do
+    let(:classroom) { create(:classroom) }
+
+    it { expect(classroom.entry_at).to_not be_nil }
+  end
 end
