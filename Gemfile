@@ -28,6 +28,7 @@ gem 'haml', '~> 4.0.4'
 
 gem 'enumerate_it', '~> 1.2.0'
 gem 'pg', '~> 0.17.1'
+gem 'puma'
 
 group :doc do
   gem 'sdoc', require: false
@@ -67,4 +68,5 @@ group :test do
 end
 
 group :production do
+  gem 'rails_serve_static_assets'
 end
